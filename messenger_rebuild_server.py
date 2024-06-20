@@ -22,11 +22,13 @@ def handle_client(conn, addr):
             msg = conn.recv(msg_length).decode(FORMAT)
             if msg == DC_MSG:
                 connected = False
-            print(f"{addr} said {msg}")
-            # balls = input("MESSAGE: ")
-            # conn.send(balls.encode(FORMAT))
+            print(f"client: {msg}")
+            
+def send(conn):
+    while True:
+        server_msg = input("")
+        conn.send(server_msg.encode(FORMAT))
 
-    conn.close()
 def start():
     server.listen()
     print(f"listening on {SERVER}")
@@ -34,6 +36,8 @@ def start():
         conn, addr = server.accept()
         thread = threading.Thread(target=handle_client, args =(conn, addr))
         thread.start()
+        thread2 = threading.Thread(target=send, args =(conn,))
+        thread2.start()
         #print(f"actv conn. {threading.activeCount() - 1}")
 
 

@@ -1,4 +1,5 @@
 import socket
+import threading
 
 HEADER = 2048
 PORT = 5050
@@ -18,10 +19,22 @@ def send(msg):
     send_length += b' ' * (HEADER - len(send_length))
     client.send(send_length)
     client.send(message)
-    # print(client.recv(2048).decode(FORMAT))
 
-while True:
-    balls = input("MESSAGE: ")
-    send(balls)
+def listen():
+    while True:
+        print(f"server: {client.recv(2048).decode(FORMAT)}" )
 
+def inputing():
+    while True:
+        balls = input("")
+        send(balls)
+
+
+def start():
+    thread = threading.Thread(target=listen)
+    thread.start()
+    thread2 = threading.Thread(target=inputing)
+    thread2.start()
+
+start()
 
