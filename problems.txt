@@ -1,0 +1,13 @@
+problems
+
+the client needs to be able to send messages without having to wait
+for the server to send one back, if we comment out the line of code that
+tells the client to listen for a msg from the server, it doesnt work
+
+i need to find a way to be able to listen on a different thread, so i can do
+both thigns at once
+
+so what i think i need to do is to move the line that allows the client to
+listen to a different thread, and move the lines that allow the server to
+send to a diff thread. how? idk, but ill figure it out. this program already
+uses threading, just have to copy and paste it
