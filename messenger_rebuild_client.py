@@ -1,5 +1,6 @@
 import socket
 import threading
+from tkinter import *
 
 HEADER = 2048
 PORT = 5050

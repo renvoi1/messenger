@@ -1,5 +1,4 @@
-problems
+none it works completely fine totally
 
-k i said id add ROT13 and base64 encoding, which i will do
-
-also want to make this a gui instead of an ugly ass command line, gonna work on that as well
+tbh this was just a test project to see if i could still code,
+apparently i can lmfao
